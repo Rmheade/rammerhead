@@ -25,6 +25,7 @@ module.exports = {
 
     // return object determines client URL rewriting
     getServerInfo: (req) => {
+        hostname: process.env.HOSTNAME || 'sharky.koyeb.app',
         return {
             hostname: req ? req.headers.host.split(':')[0] : 'sharky.koyeb.app',
             port: null, 
