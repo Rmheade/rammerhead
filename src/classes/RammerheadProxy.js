@@ -86,10 +86,11 @@ class RammerheadProxy extends Proxy {
      * @param {import('../classes/RammerheadJSAbstractCache.js')} options.jsCache - js cache class. (default: memory class 50mb)
      * @param {boolean} options.disableHttp2
      */
+    const config = require('../config');
+    
     constructor({
         loggerGetIP = (req) => req.socket.remoteAddress,
         logger = new RammerheadLogging({ logLevel: 'disabled' }),
-        const config = require('../config');
         bindingAddress = config.bindingAddress,
         port = config.port,
         crossDomainPort = config.crossDomainPort,
