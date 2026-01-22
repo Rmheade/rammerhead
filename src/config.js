@@ -30,11 +30,6 @@ module.exports = {
         crossDomainPort: 443,  // Same port for both
         protocol: 'https:'
     }),
-    
-    HOSTNAME=sharky.koyeb.app
-    PORT=8000
-    CROSS_DOMAIN_PORT=8000
-
 
     // enforce a password for creating new sessions
     password: '0000',
