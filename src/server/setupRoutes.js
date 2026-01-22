@@ -31,16 +31,16 @@ module.exports = function setupRoutes(proxyServer, sessionStore, logger) {
         res.end(config.password ? 'true' : 'false');
     });
     proxyServer.GET('/newsession', (req, res) => {
-        if (isNotAuthorized(req, res)) return;
+            if (isNotAuthorized(req, res)) return;
+        
+            const id = generateId();
+            const session = new RammerheadSession({ disableShuffling: true });  // Add this
+            session.data.restrictIP = config.getIP(req);
+        
+            sessionStore.addSerializedSession(id, session.serializeSession());
+            res.end(id);
+        });
 
-        const id = generateId();
-        const session = new RammerheadSession();
-        session.data.restrictIP = config.getIP(req);
-
-        // workaround for saving the modified session to disk
-        sessionStore.addSerializedSession(id, session.serializeSession());
-        res.end(id);
-    });
     proxyServer.GET('/editsession', (req, res) => {
         if (isNotAuthorized(req, res)) return;
 
