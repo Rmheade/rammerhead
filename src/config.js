@@ -32,7 +32,7 @@ module.exports = {
     }),
 
     // enforce a password for creating new sessions
-    password: '0000',
+    password: null,
 
     // localStorage sync
     disableLocalStorageSync: false,
