@@ -11,6 +11,7 @@ const streamToString = require('../util/streamToString');
 const URLPath = require('../util/URLPath');
 const RammerheadLogging = require('../classes/RammerheadLogging');
 const RammerheadJSMemCache = require('./RammerheadJSMemCache.js');
+const config = require('../config');
 
 require('../util/fixCorsHeader');
 require('../util/fixCorsMissingOriginHeader.js');
@@ -85,9 +86,7 @@ class RammerheadProxy extends Proxy {
      * @param {boolean} options.disableLocalStorageSync - disables localStorage syncing (default: false)
      * @param {import('../classes/RammerheadJSAbstractCache.js')} options.jsCache - js cache class. (default: memory class 50mb)
      * @param {boolean} options.disableHttp2
-     */
-    const config = require('../config');
-    
+     */    
     constructor({
         loggerGetIP = (req) => req.socket.remoteAddress,
         logger = new RammerheadLogging({ logLevel: 'disabled' }),
