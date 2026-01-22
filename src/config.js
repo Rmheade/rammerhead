@@ -15,7 +15,6 @@ module.exports = {
     crossDomainPort: parseInt(process.env.CROSS_DOMAIN_PORT || 8081),
     publicDir: path.join(__dirname, '../public'), // set to null to disable
     hostname: process.env.HOSTNAME || 'localhost',
-    password: '1234'
 
     // enable or disable multithreading
     enableWorkers,
@@ -33,7 +32,7 @@ module.exports = {
     }),
 
     // enforce a password for creating new sessions
-    password: 'sharkie4life',
+    password: '0000',
 
     // localStorage sync
     disableLocalStorageSync: false,
