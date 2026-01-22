@@ -33,6 +33,7 @@ const proxyServer = new RammerheadProxy({
     disableLocalStorageSync: config.disableLocalStorageSync,
     jsCache: config.jsCache,
     disableHttp2: config.disableHttp2
+    password: config.password
 });
 
 if (config.publicDir) addStaticDirToProxy(proxyServer, config.publicDir);
