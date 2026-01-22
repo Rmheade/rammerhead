@@ -25,11 +25,12 @@ module.exports = {
 
     // return object determines client URL rewriting
     getServerInfo: () => ({
-        hostname: process.env.HOSTNAME || 'sharky.koyeb.app',  // Your actual Koyeb domain
+        hostname: process.env.HOSTNAME || 'sharky.koyeb.app',
         port: parseInt(process.env.PORT || 8080),
-        crossDomainPort: parseInt(process.env.CROSS_DOMAIN_PORT || 8081),
-        protocol: 'https:'  // Change to https if Koyeb is using HTTPS
+        crossDomainPort: parseInt(process.env.CROSS_DOMAIN_PORT || 8080),  // Same as port
+        protocol: 'https:'
     }),
+
 
     // enforce a password for creating new sessions
     password: '0000',
