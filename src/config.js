@@ -38,7 +38,7 @@ module.exports = {
     disableLocalStorageSync: false,
 
     // restrict sessions per IP
-    restrictSessionToIP: true,
+    restrictSessionToIP: false,
 
     // caching options for JS rewrites
     jsCache: new RammerheadJSFileCache(path.join(__dirname, '../cache-js'), 5 * 1024 * 1024 * 1024, 50000, enableWorkers),
