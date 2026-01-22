@@ -24,12 +24,15 @@ module.exports = {
     ssl: null,
 
     // return object determines client URL rewriting
-    getServerInfo: () => ({
-        hostname: process.env.HOSTNAME || 'sharky.koyeb.app',
-        port: 443,  // Koyeb exposes HTTPS on 443
-        crossDomainPort: 443,  // Same port for both
-        protocol: 'https:'
-    }),
+    getServerInfo: (req) => {
+        const host = req ? req.headers.host : (process.env.HOSTNAME || 'sharky.koyeb.app');
+        return {
+            hostname: host,
+            port: null,  // Setting this to null lets the browser use the default (443 for https)
+            crossDomainPort: null,
+            protocol: 'https:'
+        };
+    },
 
     // enforce a password for creating new sessions
     password: null,
